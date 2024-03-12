@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 104%">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Sahil Gautam">
+
+  
+  
+  <meta name="description" content="Why work on this Working on this involves understanding the controlls, specially the spinedit, then finding some way to modify it so that clicking on the units &ldquo;the last 2 characters of the label in the spinedit entry&rdquo; shows a dropdown, from which we can select a different unit.
+I find working on this as a great opportunity to get deeper insights into widget implementations.
+Tip of the day dialog EasyHack I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related implementations, and he suggested I start with How to create a new &ldquo;Tip-Of-The-Day&rdquo; dialog.">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://img.icons8.com/clouds/100/india.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/clouds/100/india.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img.icons8.com/clouds/100/india.png">
+
+  
+  
+  <meta name="keywords" content="hugo latex theme blog texify texify2 weastur">
+  
+
+  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script type="module">
+    import renderMathInElement from "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.mjs";
+    renderMathInElement(document.body);
+</script>
+
+  
+
+  
+  
+
+  
+  <meta property="og:title" content="Different Units of Measurement in Libreoffice" />
+<meta property="og:description" content="Why work on this Working on this involves understanding the controlls, specially the spinedit, then finding some way to modify it so that clicking on the units &ldquo;the last 2 characters of the label in the spinedit entry&rdquo; shows a dropdown, from which we can select a different unit.
+I find working on this as a great opportunity to get deeper insights into widget implementations.
+Tip of the day dialog EasyHack I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related implementations, and he suggested I start with How to create a new &ldquo;Tip-Of-The-Day&rdquo; dialog." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mesahilgautam.github.io/post/variable-units-of-measurement/" /><meta property="og:image" content="https://mesahilgautam.github.io/images/logo.jpg"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-13T02:07:08+05:30" /><meta property="og:site_name" content="Sahil Gautam" />
+
+
+  
+  <link rel="canonical" href="https://mesahilgautam.github.io/post/variable-units-of-measurement/">
+
+  
+  
+  <meta itemprop="name" content="Different Units of Measurement in Libreoffice">
+<meta itemprop="description" content="Why work on this Working on this involves understanding the controlls, specially the spinedit, then finding some way to modify it so that clicking on the units &ldquo;the last 2 characters of the label in the spinedit entry&rdquo; shows a dropdown, from which we can select a different unit.
+I find working on this as a great opportunity to get deeper insights into widget implementations.
+Tip of the day dialog EasyHack I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related implementations, and he suggested I start with How to create a new &ldquo;Tip-Of-The-Day&rdquo; dialog."><meta itemprop="datePublished" content="2023-06-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-13T02:07:08+05:30" />
+<meta itemprop="wordCount" content="204"><meta itemprop="image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
+<meta itemprop="keywords" content="" />
+
+  
+  <link media="screen" rel="stylesheet" href='https://mesahilgautam.github.io/css/common.css'>
+  <link media="screen" rel="stylesheet" href='https://mesahilgautam.github.io/css/content.css'>
+
+  
+  
+  <title>Different Units of Measurement in Libreoffice - Sahil Gautam</title>
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
+
+<meta name="twitter:title" content="Different Units of Measurement in Libreoffice"/>
+<meta name="twitter:description" content="Why work on this Working on this involves understanding the controlls, specially the spinedit, then finding some way to modify it so that clicking on the units &ldquo;the last 2 characters of the label in the spinedit entry&rdquo; shows a dropdown, from which we can select a different unit.
+I find working on this as a great opportunity to get deeper insights into widget implementations.
+Tip of the day dialog EasyHack I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related implementations, and he suggested I start with How to create a new &ldquo;Tip-Of-The-Day&rdquo; dialog."/>
+
+
+  
+<link rel="stylesheet" href='https://mesahilgautam.github.io/css/single.css'>
+<link rel="stylesheet" href='https://mesahilgautam.github.io/css/sharingbuttons.css'>
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+<header id="header">
+  <h1>
+    <a href="https://mesahilgautam.github.io/">Sahil Gautam</a>
+  </h1>
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      <a class="link" href="/">Home</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      <a class="link" href="/post/">Archive</a>
+    </span>
+    
+  </nav>
+  
+</header>
+
+    
+<main id="main" class="post">
+  
+  <h1>Different Units of Measurement in Libreoffice</h1>
+  
+  
+  
+  
+    <br>
+    <summary>
+      <b>Table of Contents</b>
+    </summary>
+
+    <nav>
+    <div class="toc numbered-subtitles"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-work-on-this">Why work on this</a></li>
+    <li><a href="#tip-of-the-day-dialog-easyhack">Tip of the day dialog EasyHack</a></li>
+  </ul>
+</nav></div>
+    </nav>
+  
+  
+  
+  <article class="content numbered-subtitles">
+    
+    <p><a href="https://sahilgautam.in" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://www.svgrepo.com/show/130741/blog.svg" /> </a>
+<a href="https://twitter.com/mesahilgautam" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" /> </a>
+<a href="https://www.linkedin.com/in/mesahilgautam" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/768px-LinkedIn_icon.svg.png" /> </a>
+<a href="https://github.com/mesahilgautam" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png" /> </a>
+<a href="https://gerrit.libreoffice.org/q/owner:sahil%2540libreoffice.org" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gerrit_icon.svg/1024px-Gerrit_icon.svg.png" /> </a>
+<a href="mailto:me.sahilgautam@gmail.com" ><img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" /> </a>
+<br></p>
+<h2 id="why-work-on-this">Why work on this</h2>
+<p>Working on this involves understanding the controlls, specially the spinedit,
+then finding some way to modify it so that clicking on the units &ldquo;the last 2
+characters of the label in the spinedit entry&rdquo; shows a dropdown, from which we
+can select a different unit.</p>
+<img align="center" alt="Mockup" width="60%" style="padding-right:10px;" src="https://bug-attachments.documentfoundation.org/attachment.cgi?id=130628" />
+<p>I find working on this as a great opportunity to get deeper insights into
+widget implementations.</p>
+<h2 id="tip-of-the-day-dialog-easyhack">Tip of the day dialog EasyHack</h2>
+<p>I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related
+implementations, and he suggested I start with <a href="https://design.blog.documentfoundation.org/2019/06/26/how-to-create-a-new-dialog/">How to create a new &ldquo;Tip-Of-The-Day&rdquo; dialog</a>.</p>
+<p>The blog has links to other important topics like <a href="https://design.blog.documentfoundation.org/2018/02/28/easyhacking-all-about-terminology/">Easyhacking: All about terminology - LibreOffice Design Team</a>
+which talks about types of labels that an unocommand can have. It further links
+<a href="https://bugs.documentfoundation.org/show_bug.cgi?id=108458">tdf#108458</a>, which has some
+really informative discussion &ldquo;Highly recommended for someone new to Libreoffice UI.</p>
+<blockquote>
+<p>Storing command labels in a central place such as the officecfg module, as
+opposed to specifying them in the toolbar/menu xml directly, has the
+advantage of having a single string for each command. The disadvantage is
+that it makes it impossible to fine-tune labels in certain places, such as
+different kinds of ui elements&hellip;. <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=108458">tdf#108458</a></p>
+</blockquote>
+
+    
+  </article>
+  
+
+<div id="sharingbuttons">
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+</div>
+
+  <div class="paginator">
+    
+    <a></a>
+    
+    
+    <a></a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+    
+  </div>
+  
+
+</main>
+
+    <footer id="footer">
+  <div>
+    <span>© 2024</span> - <span>2024</span>
+  </div>
+
+  <div>
+    <span>Powered by </span>
+    <a class="link" target="_blank" href="https://gohugo.io/">Hugo</a>
+    <span> 🍦 Theme </span>
+    <a class="link" target="_blank" href="https://texify2.io">TeXify2</a>
+  </div>
+
+  <div class="footnote">
+    <span></span>
+  </div>
+</footer>
+
+  </div>
+
+  
+  
+
+  
+  
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GZRVRLSQV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-0GZRVRLSQV', { 'anonymize_ip': false });
+}
+</script>
+
+
+</body>
+
+</html>

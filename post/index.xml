@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sahil Gautam</title>
-    <link>https://mesahilgautam.github.io/</link>
-    <description>Recent content on Sahil Gautam</description>
+    <title>Posts on Sahil Gautam</title>
+    <link>https://mesahilgautam.github.io/post/</link>
+    <description>Recent content in Posts on Sahil Gautam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>me.sahilgautam.github.io (Sahil Gautam)</managingEditor>
-    <webMaster>me.sahilgautam.github.io (Sahil Gautam)</webMaster><atom:link href="https://mesahilgautam.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>me.sahilgautam.github.io (Sahil Gautam)</webMaster>
+    <lastBuildDate>Tue, 20 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mesahilgautam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Different Units of Measurement in Libreoffice</title>
       <link>https://mesahilgautam.github.io/post/variable-units-of-measurement/</link>
