@@ -9,23 +9,23 @@
     <managingEditor>me.sahilgautam.github.io (Sahil Gautam)</managingEditor>
     <webMaster>me.sahilgautam.github.io (Sahil Gautam)</webMaster><atom:link href="https://mesahilgautam.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Different Units of Measurement in Libreoffice</title>
-      <link>https://mesahilgautam.github.io/post/variable-units-of-measurement/</link>
-      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <title>Computer Graphics From Scratch</title>
+      <link>https://mesahilgautam.github.io/post/computer-graphics-from-scratch/</link>
+      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
       <author>me.sahilgautam.github.io (Sahil Gautam)</author>
-      <guid>https://mesahilgautam.github.io/post/variable-units-of-measurement/</guid>
-      <description>Why work on this Working on this involves understanding the controlls, specially the spinedit, then finding some way to modify it so that clicking on the units &amp;ldquo;the last 2 characters of the label in the spinedit entry&amp;rdquo; shows a dropdown, from which we can select a different unit.
-I find working on this as a great opportunity to get deeper insights into widget implementations.
-Tip of the day dialog EasyHack I asked Hossien for mentoring, so that I can some day work on notebookbar, and tabbed UI related implementations, and he suggested I start with How to create a new &amp;ldquo;Tip-Of-The-Day&amp;rdquo; dialog.</description>
+      <guid>https://mesahilgautam.github.io/post/computer-graphics-from-scratch/</guid>
+      <description>I wanted to work in C++, as I web-dev doesn&amp;rsquo;t interest me. So I asked on #C++-general IRC channel about how can I get started, and I got recommended Computer Graphics from Scratch - Gabriel Gambetta.</description>
     </item>
     
     <item>
-      <title>What Place has Thought in one&#39;s Life</title>
-      <link>https://mesahilgautam.github.io/post/krishnamurti/</link>
-      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <title>User Hostile Dialog Box</title>
+      <link>https://mesahilgautam.github.io/post/libreoffice-user-hostile-dialog-box/</link>
+      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
       <author>me.sahilgautam.github.io (Sahil Gautam)</author>
-      <guid>https://mesahilgautam.github.io/post/krishnamurti/</guid>
-      <description>Introduction As a growing young man, I find various challenges in life most of which make the life itself. For the last few days, I have been trying to work on somethings, but since they are challenging, I find myself avoiding those, and distracting myself into doing some other not so important stuff. I find myself thinking of things in general as work, and thus I am not able to enjoy it to my heart&amp;rsquo;s content.</description>
+      <guid>https://mesahilgautam.github.io/post/libreoffice-user-hostile-dialog-box/</guid>
+      <description>What do I want to achieve It&amp;rsquo;s important to set some target before jumping into and starting to do the thing. I would like to make an annoying &amp;ldquo;Donate Now&amp;rdquo; dialog
+The dialog would show up whenever the user starts libreoffice, or whenever he switches to different modules like calc or writer etc.
+The dialog would look something like the mockup shown below. The dialog should have a faint background image which shows all the community members, to give out cheerfull vibes.</description>
     </item>
     
   </channel>
