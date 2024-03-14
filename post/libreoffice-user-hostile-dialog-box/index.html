@@ -59,7 +59,7 @@ The dialog would look something like the mockup shown below. The dialog should h
 The dialog would show up whenever the user starts libreoffice, or whenever he switches to different modules like calc or writer etc.
 The dialog would look something like the mockup shown below. The dialog should have a faint background image which shows all the community members, to give out cheerfull vibes."><meta itemprop="datePublished" content="2024-03-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-03-14T03:58:28+05:30" />
-<meta itemprop="wordCount" content="362"><meta itemprop="image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
+<meta itemprop="wordCount" content="789"><meta itemprop="image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
 <meta itemprop="keywords" content="" />
 
   
@@ -128,7 +128,12 @@ The dialog would look something like the mockup shown below. The dialog should h
     <div class="toc numbered-subtitles"><nav id="TableOfContents">
   <ul>
     <li><a href="#what-do-i-want-to-achieve">What do I want to achieve</a></li>
-    <li><a href="#starting-with-the-ui">Starting with the UI</a></li>
+    <li><a href="#starting-with-the-ui">Starting with the UI</a>
+      <ul>
+        <li><a href="#creating-a-dialog">Creating a Dialog</a></li>
+        <li><a href="#what-next">What Next?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
     </nav>
@@ -174,6 +179,7 @@ then one has to reactivate it from <code>about &gt; user-hostile-donation-dialog
 <img align="center" alt="Git" width="400px" style="padding-right:10px;" src="/attachments/202411074_6.png" />
 <p>This would makeup for a nice and fun learning experience. It would involve
 playing around with the UI, listeners, strings, &ldquo;the user centiments&rdquo; etc.</p>
+<p>It&rsquo;s not a rigid outline, but rather an idea to atleast get started.</p>
 <h2 id="starting-with-the-ui">Starting with the UI</h2>
 <p>I will start with understanding how the about dialog is implemented, how does
 it display images and custom text etc. One thing that I noticed previously is that
@@ -187,6 +193,44 @@ while trying to recreate the &ldquo;Tip Of The Day&rdquo; dialog. There I just c
 constructor, without specifying the image.</p>
 <p>Well for the user hostile dialog, GtkImage would work fine as I don&rsquo;t need to change the
 image on the go.</p>
+<h3 id="creating-a-dialog">Creating a Dialog</h3>
+<p>I created a dialog box using glade. The challenge that I faced was that I was
+not able to move the checkboxes in the ButtonBox of the GtkDialog to the left
+side. All 4 controls were stuck together. Then I looked into how the
+tip-of-the-day dialog does it, and there I found that whatever control I wanted
+to left align (in the button box), I had to turn on the <code>packing &gt; secondary</code>
+control. What that is, I am still to investigate into.I got this <a href="https://docs.gtk.org/gtk3/method.ButtonBox.set_child_secondary.html">Documentation Reference</a>
+from the #gtk IRC channel.</p>
+<p>For some reason, the dialog doesn&rsquo;t carsh now :). Other issue that I faced was
+related to text wrapping. So if I set some long text in a <code>weld::Label</code> using
+the <code>set_label(OUString)</code> function, then it just expands the dialog to fit in
+one line. GtkImage is just a bitmap image, for which we specify the size
+(width) while loading it. For label wrapping, I will look into how the
+tip-of-the-day dialog does it. Making the dialog resizable doesn&rsquo;t work as
+well. Under <code>general &gt; formatting</code> of the GtkLabel there is an option to specify
+wrapping properties, and just below that are boxes for max width. Playing around with
+those, I was able to get text wrapping to work.</p>
+<blockquote>
+<p>Sometimes these things feel hard, and I tend to avoid them as much as I can.
+But Now I realize that it is those hard moments which build me to tackel bigger
+challenges, and I should be looking for such opportunities. Today I find glade
+easier to use compared to yesterday</p>
+</blockquote>
+<p>I got the dialog as I wanted. Looks nice! When I was working on the dialog, I
+changed the <code>SID_ABOUT:</code> unocommand to display the user-hostile-dialog instead
+of the about dialog. This way I was able to test whether it works as expected
+or not.</p>
+<img align="center" alt="Git" width="350px" style="padding-right:10px;" src="/attachments/2024-075.png" />
+<p>Then I went ahead to work on the listeners and the configuration logic. There
+should be some way for us to remember what options were checked/unchecked when
+the dialog was closed (configuration), and some way know which module we are
+entering, so that we can change the text accordingly (listeners).</p>
+<h3 id="what-next">What Next?</h3>
+<p>I figured that for each dialog, we have a generic wrapper class called
+<code>VclAbstractDialog</code>. It provides &ldquo;one type for all dialogs&rdquo; solution, which
+makes sense. I followed the about/tip-of-the-day dialog to write all these
+functions and classes. And since I want a menu entry as well, I had to create
+an unocommand as well.</p>
 
     
   </article>
