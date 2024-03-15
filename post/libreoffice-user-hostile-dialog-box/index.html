@@ -59,7 +59,7 @@ The dialog would look something like the mockup shown below. The dialog should h
 The dialog would show up whenever the user starts libreoffice, or whenever he switches to different modules like calc or writer etc.
 The dialog would look something like the mockup shown below. The dialog should have a faint background image which shows all the community members, to give out cheerfull vibes."><meta itemprop="datePublished" content="2024-03-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-03-14T03:58:28+05:30" />
-<meta itemprop="wordCount" content="789"><meta itemprop="image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
+<meta itemprop="wordCount" content="1185"><meta itemprop="image" content="https://mesahilgautam.github.io/images/logo.jpg"/>
 <meta itemprop="keywords" content="" />
 
   
@@ -131,9 +131,16 @@ The dialog would look something like the mockup shown below. The dialog should h
     <li><a href="#starting-with-the-ui">Starting with the UI</a>
       <ul>
         <li><a href="#creating-a-dialog">Creating a Dialog</a></li>
-        <li><a href="#what-next">What Next?</a></li>
       </ul>
     </li>
+    <li><a href="#what-next">What Next?</a>
+      <ul>
+        <li><a href="#adding-listeners">Adding Listeners</a></li>
+        <li><a href="#remembering-dialog-configuration">Remembering Dialog Configuration</a></li>
+        <li><a href="#button-opens-donationcontribution-page">Button Opens Donation/Contribution page</a></li>
+      </ul>
+    </li>
+    <li><a href="#whats-left">What&rsquo;s Left?</a></li>
   </ul>
 </nav></div>
     </nav>
@@ -225,12 +232,52 @@ or not.</p>
 should be some way for us to remember what options were checked/unchecked when
 the dialog was closed (configuration), and some way know which module we are
 entering, so that we can change the text accordingly (listeners).</p>
-<h3 id="what-next">What Next?</h3>
+<h2 id="what-next">What Next?</h2>
 <p>I figured that for each dialog, we have a generic wrapper class called
 <code>VclAbstractDialog</code>. It provides &ldquo;one type for all dialogs&rdquo; solution, which
 makes sense. I followed the about/tip-of-the-day dialog to write all these
 functions and classes. And since I want a menu entry as well, I had to create
-an unocommand as well.</p>
+an unocommand as well. I found that each module, and the start center etc have
+their own menubar.xml file. I added the user-hostile-dialog entry to most of
+those.</p>
+<h3 id="adding-listeners">Adding Listeners</h3>
+<p>Looking into tip-of-the-day dialog, I found that when it is created,  it adds a
+listener on the parent window, and checks if it is dying or not, and if so then
+it terminates as well. Then in the destructor, it removes the listener.</p>
+<p>For adding listeners to show the dialog on such and such events, I had to read
+through the <code>SfxViewFrame::Notify</code> function, as described in the <a href="https://design.blog.documentfoundation.org/2019/06/26/how-to-create-a-new-dialog/">Blog</a>.
+It listens for changes like document created/opened and creates the dialog then.</p>
+<h3 id="remembering-dialog-configuration">Remembering Dialog Configuration</h3>
+<p>The last part was to remember whether the user checked some checkbox or not, and
+remember that throughout the session, and between new sessions. I defined configuration
+defaults in xml file <code>officecfg/registry/schema/org/openoffice/Office/Common.xcs</code> and
+used the path to define a struct, through which we access/set the values, similar to
+how tip-of-the-day dialog does it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">UserHostileDialogDontCare</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">comphelper</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ConfigurationProperty</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">LastTipOfTheDayShown</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sal_Int32</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">OUString</span> <span style="color:#000">path</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">constexpr</span> <span style="color:#000">OUString</span> <span style="color:#000">PATH</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">u</span><span style="color:#4e9a06">&#34;/org.openoffice.Office.Common/Misc/UserHostileDialogDontCare&#34;</span><span style="color:#000">_ustr</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">PATH</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">private</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">UserHostileDialogDontCare</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// not defined
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#ce5c00;font-weight:bold">~</span><span style="color:#000">UserHostileDialogDontCare</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// not defined
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">...</span>
+</span></span></code></pre></div><p>Now when the dialog is created , these configuration values are checked, and
+are used to set the state of the controls. When the dialog is destroyed, these
+choices are not lost. I forgot to set the type to boolean in the xml file, and
+as a result, the dialog was not showing up, so that&rsquo;s something to reember as
+well, while copy pasting ;).</p>
+<p>I added links to the checkboxes as well to change the <code>Donate</code> button to
+<code>Contribute</code>, if the user says &ldquo;I&rsquo;m broke!&rdquo;</p>
+<h3 id="button-opens-donationcontribution-page">Button Opens Donation/Contribution page</h3>
+<p>Since the user can either donate or contribute, I had to redirect him to the correct
+page. For that I looked at how <code>.uno:Donation</code> does it. At first I tried to do it how
+the .uno:Donation does it, but then I thought why don&rsquo;t I just call the uno commands!</p>
+<p>So when the button is clicked, it dispatches uno commands depending on whether &ldquo;[ ] I&rsquo;m broke!&rdquo;
+is checked or not.</p>
+<h2 id="whats-left">What&rsquo;s Left?</h2>
+<p>Since I want it to be User Hostile, there should be some way to show it when
+start center is opened. Other than that there should be some way to tell which
+module is opened, and change the label according to that.</p>
 
     
   </article>
