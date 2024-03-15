@@ -52,7 +52,7 @@ then one has to reactivate it from &lt;code&gt;about &amp;gt; user-hostile-donat
 &lt;img align=&#34;center&#34; alt=&#34;Git&#34; width=&#34;400px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://mesahilgautam.github.io/attachments/202411074_6.png&#34; /&gt;
 &lt;p&gt;This would makeup for a nice and fun learning experience. It would involve
 playing around with the UI, listeners, strings, &amp;ldquo;the user centiments&amp;rdquo; etc.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s not a rigid outline, but rather an idea to atleast get started.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not a rigid outline, but rather an idea to atleast get started. &lt;a href=&#34;https://gerrit.libreoffice.org/c/core/+/159434&#34;&gt;Patch on gerrit&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;starting-with-the-ui&#34;&gt;Starting with the UI&lt;/h2&gt;
 &lt;p&gt;I will start with understanding how the about dialog is implemented, how does
 it display images and custom text etc. One thing that I noticed previously is that
