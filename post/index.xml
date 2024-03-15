@@ -8,7 +8,99 @@
     <language>en</language>
     <managingEditor>me.sahilgautam.github.io (Sahil Gautam)</managingEditor>
     <webMaster>me.sahilgautam.github.io (Sahil Gautam)</webMaster>
-    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://mesahilgautam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://mesahilgautam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Different Units of Measurement in Libreoffice</title>
+      <link>https://mesahilgautam.github.io/post/libreoffice-different-units/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <author>me.sahilgautam.github.io (Sahil Gautam)</author>
+      <guid>https://mesahilgautam.github.io/post/libreoffice-different-units/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://sahilgautam.in&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://www.svgrepo.com/show/130741/blog.svg&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://twitter.com/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://www.linkedin.com/in/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/768px-LinkedIn_icon.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://github.com/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://gerrit.libreoffice.org/q/owner:sahil%2540libreoffice.org&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gerrit_icon.svg/1024px-Gerrit_icon.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;mailto:me.sahilgautam@gmail.com&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;why-work-on-this&#34;&gt;Why work on this&lt;/h2&gt;
+&lt;p&gt;Working on this involves understanding the controlls, specially the spinedit,
+finding some way to modify it so that clicking on the units &amp;ldquo;the last 2
+characters of the label in the spinedit entry&amp;rdquo; shows a dropdown, from which we
+can select a different unit.&lt;/p&gt;
+&lt;img align=&#34;center&#34; alt=&#34;Mockup&#34; width=&#34;60%&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://bug-attachments.documentfoundation.org/attachment.cgi?id=130628&#34; /&gt;
+&lt;p&gt;I find working on this as a great opportunity to get deeper insights into
+widget implementations&lt;/p&gt;
+&lt;h2 id=&#34;finding-a-starting-point&#34;&gt;Finding a Starting Point&lt;/h2&gt;
+&lt;p&gt;I had no idea about where to start. One approach that appealed to me was if somehow
+I find the cursor position when the spinedit goes into edit mode, and compare it to
+the text length in the GtkEntry (internal) of the spinedit, then I can easily say that
+if the cursor is on the last 2 characters, then show a dropdown here. But that would
+not work, because &amp;ldquo;creating a new widget&amp;rdquo; ==&amp;gt; the logic should be built into the
+widget itself (I don&amp;rsquo;t know, it&amp;rsquo;s just guess-work).&lt;/p&gt;
+&lt;p&gt;Then I went to #gtk IRC channel, and asked about how to approach this problem.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;IRC Conversation&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;hi, I have a task to write a custom spinedit control, which will have a fontsize field (with a number and a unit like mm, pt, etc). It should be such that if I click on the unit with mouse, then it should show me a dropdown to use different units. &lt;a href=&#34;https://bug-attachments.documentfoundation.org/attachment.cgi?id=130628&#34;&gt;Mockup&lt;/a&gt; Here&amp;rsquo;s the mockup. How can I approach it?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Libreoffice uses glade and custom welding for widgets. And from the research I did on it, I found that a normal gtkentry is aware of the cursor position, which can be used like if the cursor is on the last 2 characters, then show the popup.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;But a new control has to be created for that (in my understanding).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mclasen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The pieces are &lt;code&gt;GtkText&lt;/code&gt; and &lt;code&gt;GtkGestureClick&lt;/code&gt;. You just have to glue them together in the right way&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;mclasen&lt;/strong&gt;: and for the dropdown?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mclasen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GtkPopover is what is used for that&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Also the spinedit doesn&amp;rsquo;t expose the gtkEntry (it&amp;rsquo;s internal). So do I have to create one from scratch?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sahil_&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;or does it?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mclasen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;you can take a look at how GtkEntry, GtkSpinButton, etc are put together nowadays  they are all just wrappers around a GtkText widget&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This was more than enough to get started.&lt;/p&gt;
+&lt;h2 id=&#34;starting-the-hunt&#34;&gt;Starting the Hunt&lt;/h2&gt;
+&lt;p&gt;Looking into it, I found that I was mixing up GtkComboBox, which is used as
+fontsizebox, and GtkSpinButton, which is what I was supposed to explore and
+modify. &lt;code&gt;weld::SpinButton&lt;/code&gt;, which is libreoffice&amp;rsquo;s wrapper over &lt;code&gt;GtkSpinButton&lt;/code&gt;
+(if I am not wrong) has functions which give access to the cursor location in
+the Entry. It would require some playing around to understand the dynamics
+though.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I am also curious about how a dialog, or any UI element, which is created
+using glade, which usually has the widgets as Gtk types (GtkLabel, GtkButton
+etc.) is loaded into different backends. Knowing how the welding works would answer
+it I think.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
     <item>
       <title>User Hostile Dialog Box</title>
       <link>https://mesahilgautam.github.io/post/libreoffice-user-hostile-dialog-box/</link>
