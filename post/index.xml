@@ -15,7 +15,9 @@
       <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
       <author>me.sahilgautam.github.io (Sahil Gautam)</author>
       <guid>https://mesahilgautam.github.io/post/computer-graphics-from-scratch/</guid>
-      <description>I wanted to work in C++, as I web-dev doesn&amp;rsquo;t interest me. So I asked on #C++-general IRC channel about how can I get started, and I got recommended Computer Graphics from Scratch - Gabriel Gambetta.</description>
+      <description>&lt;p&gt;I wanted to work in C++, as I web-dev doesn&amp;rsquo;t interest me. So I asked on #C++-general
+IRC channel about how can I get started, and I got recommended &lt;a href=&#34;https://gabrielgambetta.com/computer-graphics-from-scratch/&#34;&gt;Computer Graphics from Scratch - Gabriel Gambetta&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -24,9 +26,136 @@
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
       <author>me.sahilgautam.github.io (Sahil Gautam)</author>
       <guid>https://mesahilgautam.github.io/post/libreoffice-user-hostile-dialog-box/</guid>
-      <description>What do I want to achieve It&amp;rsquo;s important to set some target before jumping into and starting to do the thing. I would like to make an annoying &amp;ldquo;Donate Now&amp;rdquo; dialog
-The dialog would show up whenever the user starts libreoffice, or whenever he switches to different modules like calc or writer etc.
-The dialog would look something like the mockup shown below. The dialog should have a faint background image which shows all the community members, to give out cheerfull vibes.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://sahilgautam.in&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://www.svgrepo.com/show/130741/blog.svg&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://twitter.com/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://www.linkedin.com/in/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/768px-LinkedIn_icon.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://github.com/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://gerrit.libreoffice.org/q/owner:sahil%2540libreoffice.org&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gerrit_icon.svg/1024px-Gerrit_icon.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;mailto:me.sahilgautam@gmail.com&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-do-i-want-to-achieve&#34;&gt;What do I want to achieve&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s important to set some target before jumping into and starting to do the
+thing. I would like to make an annoying &amp;ldquo;Donate Now&amp;rdquo; dialog&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The dialog would show up whenever the user starts libreoffice, or whenever he
+switches to different modules like calc or writer etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The dialog would look something like the mockup shown below. The dialog
+should have a faint background image which shows all the community members,
+to give out cheerfull vibes. Other than that it would have a text which would
+be some interesting fact about libreoffice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It would have an image on the top, and a &amp;ldquo;donate now&amp;rdquo; and a &amp;ldquo;close&amp;rdquo; button on
+the bottom It would also have a checkbox saying &amp;ldquo;I am broke&amp;rdquo;, which would be
+unchecked by default. If the user checks it, then the dialog will stop asking
+for monitory donations, and instead pester the user with &amp;ldquo;Other Ways To
+Contribute&amp;rdquo;, which would include all the getting involved stuff.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other than that It would also have an &amp;ldquo;I don&amp;rsquo;t care&amp;rdquo; checkbox, which will be
+unchecked by default, and if checked, the dialog won&amp;rsquo;t show up again, and
+then one has to reactivate it from &lt;code&gt;about &amp;gt; user-hostile-donation-dialog&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img align=&#34;center&#34; alt=&#34;Git&#34; width=&#34;400px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://mesahilgautam.github.io/attachments/202411074_6.png&#34; /&gt;
+&lt;p&gt;This would makeup for a nice and fun learning experience. It would involve
+playing around with the UI, listeners, strings, &amp;ldquo;the user centiments&amp;rdquo; etc.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not a rigid outline, but rather an idea to atleast get started.&lt;/p&gt;
+&lt;h2 id=&#34;starting-with-the-ui&#34;&gt;Starting with the UI&lt;/h2&gt;
+&lt;p&gt;I will start with understanding how the about dialog is implemented, how does
+it display images and custom text etc. One thing that I noticed previously is that
+the &amp;ldquo;Tip Of The Day&amp;rdquo; dialog uses GtkDrawingArea while the about dialog uses GtkImage.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I asked on the #gtk IRC channel, and found that GtkImage is an image loaded from the
+disk at a specific size, while GtkDrawingArea is a canvas you draw on using cario.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This might have been the reason for why Libreoffice was carshing when I used GtkImage
+while trying to recreate the &amp;ldquo;Tip Of The Day&amp;rdquo; dialog. There I just created a bare
+constructor, without specifying the image.&lt;/p&gt;
+&lt;p&gt;Well for the user hostile dialog, GtkImage would work fine as I don&amp;rsquo;t need to change the
+image on the go.&lt;/p&gt;
+&lt;h3 id=&#34;creating-a-dialog&#34;&gt;Creating a Dialog&lt;/h3&gt;
+&lt;p&gt;I created a dialog box using glade. The challenge that I faced was that I was
+not able to move the checkboxes in the ButtonBox of the GtkDialog to the left
+side. All 4 controls were stuck together. Then I looked into how the
+tip-of-the-day dialog does it, and there I found that whatever control I wanted
+to left align (in the button box), I had to turn on the &lt;code&gt;packing &amp;gt; secondary&lt;/code&gt;
+control. What that is, I am still to investigate into.I got this &lt;a href=&#34;https://docs.gtk.org/gtk3/method.ButtonBox.set_child_secondary.html&#34;&gt;Documentation Reference&lt;/a&gt;
+from the #gtk IRC channel.&lt;/p&gt;
+&lt;p&gt;For some reason, the dialog doesn&amp;rsquo;t carsh now :). Other issue that I faced was
+related to text wrapping. So if I set some long text in a &lt;code&gt;weld::Label&lt;/code&gt; using
+the &lt;code&gt;set_label(OUString)&lt;/code&gt; function, then it just expands the dialog to fit in
+one line. GtkImage is just a bitmap image, for which we specify the size
+(width) while loading it. For label wrapping, I will look into how the
+tip-of-the-day dialog does it. Making the dialog resizable doesn&amp;rsquo;t work as
+well. Under &lt;code&gt;general &amp;gt; formatting&lt;/code&gt; of the GtkLabel there is an option to specify
+wrapping properties, and just below that are boxes for max width. Playing around with
+those, I was able to get text wrapping to work.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sometimes these things feel hard, and I tend to avoid them as much as I can.
+But Now I realize that it is those hard moments which build me to tackel bigger
+challenges, and I should be looking for such opportunities. Today I find glade
+easier to use compared to yesterday&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I got the dialog as I wanted. Looks nice! When I was working on the dialog, I
+changed the &lt;code&gt;SID_ABOUT:&lt;/code&gt; unocommand to display the user-hostile-dialog instead
+of the about dialog. This way I was able to test whether it works as expected
+or not.&lt;/p&gt;
+&lt;img align=&#34;center&#34; alt=&#34;Git&#34; width=&#34;350px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://mesahilgautam.github.io/attachments/2024-075.png&#34; /&gt;
+&lt;p&gt;Then I went ahead to work on the listeners and the configuration logic. There
+should be some way for us to remember what options were checked/unchecked when
+the dialog was closed (configuration), and some way know which module we are
+entering, so that we can change the text accordingly (listeners).&lt;/p&gt;
+&lt;h2 id=&#34;what-next&#34;&gt;What Next?&lt;/h2&gt;
+&lt;p&gt;I figured that for each dialog, we have a generic wrapper class called
+&lt;code&gt;VclAbstractDialog&lt;/code&gt;. It provides &amp;ldquo;one type for all dialogs&amp;rdquo; solution, which
+makes sense. I followed the about/tip-of-the-day dialog to write all these
+functions and classes. And since I want a menu entry as well, I had to create
+an unocommand as well. I found that each module, and the start center etc have
+their own menubar.xml file. I added the user-hostile-dialog entry to most of
+those.&lt;/p&gt;
+&lt;h3 id=&#34;adding-listeners&#34;&gt;Adding Listeners&lt;/h3&gt;
+&lt;p&gt;Looking into tip-of-the-day dialog, I found that when it is created,  it adds a
+listener on the parent window, and checks if it is dying or not, and if so then
+it terminates as well. Then in the destructor, it removes the listener.&lt;/p&gt;
+&lt;p&gt;For adding listeners to show the dialog on such and such events, I had to read
+through the &lt;code&gt;SfxViewFrame::Notify&lt;/code&gt; function, as described in the &lt;a href=&#34;https://design.blog.documentfoundation.org/2019/06/26/how-to-create-a-new-dialog/&#34;&gt;Blog&lt;/a&gt;.
+It listens for changes like document created/opened and creates the dialog then.&lt;/p&gt;
+&lt;h3 id=&#34;remembering-dialog-configuration&#34;&gt;Remembering Dialog Configuration&lt;/h3&gt;
+&lt;p&gt;The last part was to remember whether the user checked some checkbox or not, and
+remember that throughout the session, and between new sessions. I defined configuration
+defaults in xml file &lt;code&gt;officecfg/registry/schema/org/openoffice/Office/Common.xcs&lt;/code&gt; and
+used the path to define a struct, through which we access/set the values, similar to
+how tip-of-the-day dialog does it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UserHostileDialogDontCare&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;comphelper&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ConfigurationProperty&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LastTipOfTheDayShown&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;sal_Int32&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OUString&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OUString&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/org.openoffice.Office.Common/Misc/UserHostileDialogDontCare&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ustr&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;UserHostileDialogDontCare&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// not defined
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;~&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;UserHostileDialogDontCare&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// not defined
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now when the dialog is created , these configuration values are checked, and
+are used to set the state of the controls. When the dialog is destroyed, these
+choices are not lost. I forgot to set the type to boolean in the xml file, and
+as a result, the dialog was not showing up, so that&amp;rsquo;s something to reember as
+well, while copy pasting ;).&lt;/p&gt;
+&lt;p&gt;I added links to the checkboxes as well to change the &lt;code&gt;Donate&lt;/code&gt; button to
+&lt;code&gt;Contribute&lt;/code&gt;, if the user says &amp;ldquo;I&amp;rsquo;m broke!&amp;rdquo;&lt;/p&gt;
+&lt;h3 id=&#34;button-opens-donationcontribution-page&#34;&gt;Button Opens Donation/Contribution page&lt;/h3&gt;
+&lt;p&gt;Since the user can either donate or contribute, I had to redirect him to the correct
+page. For that I looked at how &lt;code&gt;.uno:Donation&lt;/code&gt; does it. At first I tried to do it how
+the .uno:Donation does it, but then I thought why don&amp;rsquo;t I just call the uno commands!&lt;/p&gt;
+&lt;p&gt;So when the button is clicked, it dispatches uno commands depending on whether &amp;ldquo;[ ] I&amp;rsquo;m broke!&amp;rdquo;
+is checked or not.&lt;/p&gt;
+&lt;h2 id=&#34;whats-left&#34;&gt;What&amp;rsquo;s Left?&lt;/h2&gt;
+&lt;p&gt;Since I want it to be User Hostile, there should be some way to show it when
+start center is opened. Other than that there should be some way to tell which
+module is opened, and change the label according to that.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
