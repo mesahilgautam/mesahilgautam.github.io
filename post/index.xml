@@ -8,18 +8,7 @@
     <language>en</language>
     <managingEditor>me.sahilgautam.github.io (Sahil Gautam)</managingEditor>
     <webMaster>me.sahilgautam.github.io (Sahil Gautam)</webMaster>
-    <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://mesahilgautam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Computer Graphics From Scratch</title>
-      <link>https://mesahilgautam.github.io/post/computer-graphics-from-scratch/</link>
-      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
-      <author>me.sahilgautam.github.io (Sahil Gautam)</author>
-      <guid>https://mesahilgautam.github.io/post/computer-graphics-from-scratch/</guid>
-      <description>&lt;p&gt;I wanted to work in C++, as I web-dev doesn&amp;rsquo;t interest me. So I asked on #C++-general
-IRC channel about how can I get started, and I got recommended &lt;a href=&#34;https://gabrielgambetta.com/computer-graphics-from-scratch/&#34;&gt;Computer Graphics from Scratch - Gabriel Gambetta&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
+    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://mesahilgautam.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>User Hostile Dialog Box</title>
       <link>https://mesahilgautam.github.io/post/libreoffice-user-hostile-dialog-box/</link>
@@ -32,6 +21,7 @@ IRC channel about how can I get started, and I got recommended &lt;a href=&#34;h
 &lt;a href=&#34;https://github.com/mesahilgautam&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png&#34; /&gt; &lt;/a&gt;
 &lt;a href=&#34;https://gerrit.libreoffice.org/q/owner:sahil%2540libreoffice.org&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gerrit_icon.svg/1024px-Gerrit_icon.svg.png&#34; /&gt; &lt;/a&gt;
 &lt;a href=&#34;mailto:me.sahilgautam@gmail.com&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png&#34; /&gt; &lt;/a&gt;
+&lt;a href=&#34;https://mesahilgautam.github.io/index.xml&#34; &gt;&lt;img align=&#34;left&#34; alt=&#34;Git&#34; width=&#34;30px&#34; style=&#34;padding-right:10px;&#34; src=&#34;https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/2048px-Feed-icon.svg.png&#34; /&gt; &lt;/a&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;what-do-i-want-to-achieve&#34;&gt;What do I want to achieve&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s important to set some target before jumping into and starting to do the
